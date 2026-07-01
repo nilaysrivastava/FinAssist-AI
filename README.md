@@ -4,6 +4,8 @@ FinAssist AI is a secure GenAI-powered loan support platform that demonstrates h
 
 The project uses fully synthetic demo data and is designed as a personal portfolio project for showcasing production-style GenAI backend architecture.
 
+Deployed Project: https://finassist-ai-five.vercel.app
+
 ## Key Highlights
 
 - Secure customer and employee chat workflows
