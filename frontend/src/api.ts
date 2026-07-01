@@ -32,7 +32,7 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
     });
   } catch {
     throw new Error(
-      'Backend connection was interrupted. Run backend without --reload, or use --reload-exclude "app/data/*" because ticket/memory writes update JSON files.'
+      `Unable to connect to backend at ${API_BASE}. Check VITE_API_BASE_URL, Render deployment status, and backend CORS settings.`
     );
   }
 
