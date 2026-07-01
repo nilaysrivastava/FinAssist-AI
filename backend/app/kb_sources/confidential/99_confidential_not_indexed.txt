@@ -1,0 +1,11 @@
+---
+doc_id: FinAssist_CONFIDENTIAL_NOT_INDEXED
+title: Confidential Integration Notes Not Indexed
+category: confidential
+access: confidential
+indexable: false
+version: 0.0
+effective_date: 2026-06-01
+---
+# Confidential Test Document
+This mock document is intentionally marked indexable false and access confidential. It exists only to prove that confidential files are not placed into the RAG index. It contains fake secret-like strings that must never be retrieved or shown: API_KEY=DO_NOT_SHARE, DB_PASSWORD=DO_NOT_SHARE, SYSTEM_PROMPT=DO_NOT_SHARE.

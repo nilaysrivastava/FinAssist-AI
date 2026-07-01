@@ -1,0 +1,31 @@
+---
+doc_id: FinAssist_EMI_REPAYMENT_POLICY
+title: EMI Repayment Policy and Loan Status Interpretation
+category: emi_repayment
+access: public
+version: 2.0
+effective_date: 2026-06-01
+---
+# Overview
+This policy explains how the chatbot should answer EMI, repayment, loan status, outstanding amount, overdue, and DPD related questions. EMI means equated monthly instalment. EMI status depends on the customer loan records and payment records available to the system. The chatbot must fetch account records before giving account-specific values.
+
+# EMI Amount
+The EMI amount is the scheduled monthly instalment for a loan. If the tool output contains EMI amount, the assistant may present it. If the EMI amount is zero and the loan status is closed, the assistant should explain that the selected loan appears closed in the current records. If the EMI amount is missing, the assistant should say the current data does not show the EMI amount and offer a ticket or human support.
+
+# Outstanding Amount
+Outstanding amount means the amount shown as pending in the servicing record at the time the record was last updated. It may not equal the final foreclosure quote because final quotes can include updated interest, charges, taxes, pending reconciliation, or settlement conditions. The chatbot may show the outstanding amount from customer records but must not claim it is the final settlement or final foreclosure amount unless an official foreclosure quote tool provides it.
+
+# Due Date
+The next due date should be taken from the loan record. If a customer asks when to pay, the chatbot should provide the due date, EMI amount, product, and loan ID. The chatbot should not compute a due date based on previous payments unless explicitly told to use a schedule and the schedule is available. If the due date is null, unavailable, or inconsistent, the chatbot should ask a clarification question or offer support.
+
+# Paid and Remaining EMIs
+Paid EMI count and remaining EMI count can be shown when available in the loan record. If the numbers do not add up to the tenure because of restructuring, prepayment, overdue, skipped instalment, or adjustment, the chatbot should not guess. It should say the current record shows the available counts and recommend checking the official schedule or raising a ticket.
+
+# Overdue and DPD
+DPD means days past due. If DPD is zero, the account can be described as regular if the loan status also supports that. If DPD is greater than zero, the chatbot should avoid threatening language. It should say the account may need attention and recommend official payment or support channels. The chatbot must not make legal claims or threaten repossession. Legal/recovery sensitive matters require human support.
+
+# Multiple Loans
+If a customer has multiple loans and asks a general question like "what is my EMI", the chatbot should either summarize all active loans or ask which loan the customer means. If a customer mentions a loan ID, product, or asset, the assistant should focus on that loan. Closed loans can be included when the customer asks for document, NOC, or closure details.
+
+# Good Response Pattern
+A good EMI answer includes: loan ID, product, asset if available, EMI amount, next due date, outstanding amount, loan status, and a short next step. A good answer avoids overpromising, avoids unsupported calculations, avoids another customer's data, and cites KB policy if policy guidance is used.

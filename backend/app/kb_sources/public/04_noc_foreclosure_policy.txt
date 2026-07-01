@@ -1,0 +1,28 @@
+---
+doc_id: FinAssist_NOC_FORECLOSURE_POLICY
+title: NOC, Loan Closure and Foreclosure Policy
+category: loan_servicing
+access: public
+version: 2.0
+effective_date: 2026-06-01
+---
+# NOC Definition
+NOC means No Objection Certificate. It is generally available after a loan is fully closed, all dues are cleared, and final reconciliation is completed. The chatbot may explain the NOC process and guide the customer to the portal document section. It must not claim that NOC is generated unless records show the relevant document or loan closure status supports the answer.
+
+# NOC Availability
+If the customer has a closed loan and document records show NOC available, the chatbot can say that NOC appears available for that loan and guide the customer to download it from the portal. If the loan is active or outstanding amount is not zero, the chatbot should explain that NOC is generally available only after closure and reconciliation. If the record is unclear, it should offer a support ticket.
+
+# NOC Not Visible
+If NOC is not visible after loan closure, the chatbot should create a support ticket or guide the customer to raise one. The ticket should include customer ID, closed loan ID if known, and a safe issue description. The chatbot should not ask for sensitive authentication details in chat.
+
+# Foreclosure Definition
+Foreclosure or pre-closure means closing a loan before the scheduled end date by paying the outstanding amount and applicable charges if any. The chatbot may explain the process at a high level. The chatbot must not compute or promise final foreclosure amount unless an official foreclosure quote is available from an approved tool. In this prototype, there is no final foreclosure quote tool, so the assistant must route final quote requests to human approval or support.
+
+# Foreclosure Request Steps
+A general foreclosure request can be answered with the process: check loan status, review outstanding amount, request foreclosure quote from official channel, pay through official channel, wait for reconciliation, and download closure documents or NOC when available. Account-specific loan information should be fetched using the loan tool.
+
+# Final Quote and Settlement
+Final foreclosure quote, settlement amount, waiver, penalty reversal, and legal commitment are critical financial actions. These require human approval. The chatbot should create a human approval request and clearly say it cannot finalize or approve the amount in chat.
+
+# Closed Loan Documents
+Closed loan documents can include NOC, closure letter, repayment statement, and receipt history. If a document is available in records, the chatbot can mention availability. If unavailable, it should raise or suggest a service request. It must not fabricate document URLs.

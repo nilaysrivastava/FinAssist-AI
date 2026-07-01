@@ -1,0 +1,25 @@
+---
+doc_id: FinAssist_AGENTIC_RAG_ARCHITECTURE
+title: Internal Design Notes for Agentic RAG Chatbot Architecture
+category: employee_internal
+access: internal
+version: 2.0
+effective_date: 2026-06-01
+---
+# Architecture Overview
+The chatbot follows a production-style agentic RAG pattern. The frontend sends a user message and short history to the FastAPI backend. The backend performs safety triage, clarification detection, and role-aware access control. The LLM then decides which tools to call. Tools can search the read-only KB, fetch customer records, fetch payment history, create support tickets, create human approval requests, and use safe user memory.
+
+# Document Pipeline
+Approved policy text or PDF files live inside the backend project folder. The ingestion command cleans text, removes noisy whitespace, separates sections, creates semantic chunks, adds chunk overlap, attaches metadata, creates local sparse embedding vectors, and writes a JSON vector index. No customer or employee can upload KB documents from the frontend.
+
+# Retrieval Pipeline
+The retrieval layer combines BM25 lexical score, local vector similarity score, domain token expansion, metadata boost, reranking, and deduplication. Internal chunks are visible only to employee users. Confidential chunks are not indexed. Retrieved snippets are returned with source ID, chunk ID, title, section, and citation label.
+
+# Generation Pipeline
+The LLM receives the system prompt, safe conversation history, tool outputs, and retrieved KB snippets. It must cite KB-derived claims using source and chunk IDs. It must use customer tools for account-specific facts. It must say when data is missing instead of hallucinating.
+
+# Human Approval Pipeline
+The assistant cannot approve critical changes. It routes refunds, waivers, settlement, charge reversals, legal/recovery matters, fraud concerns, KYC/contact changes, final foreclosure quote, and binding financial decisions to a human approval request. The request is stored locally as JSON in this prototype.
+
+# Memory Pipeline
+The system stores short safe support-context memories per logged-in user. Memory is user-scoped and redacted. It is not a replacement for official records. Memory should never contain OTP, passwords, full card data, UPI PIN, system prompts, or another customer's private information.

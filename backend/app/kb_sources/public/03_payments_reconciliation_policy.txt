@@ -1,0 +1,31 @@
+---
+doc_id: FinAssist_PAYMENT_RECON_POLICY
+title: Payment Channels, Failed Payment and Reconciliation Policy
+category: payments
+access: public
+version: 2.0
+effective_date: 2026-06-01
+---
+# Payment Channels
+Customers may pay EMI through official channels such as the customer portal, UPI, net banking, debit card, auto-debit or NACH mandate, branch assistance, or approved collection channels depending on product and account eligibility. The chatbot should guide the customer to official payment pages or support routes. It must not collect card details, OTP, CVV, UPI PIN, net banking password, or full bank credentials.
+
+# Successful Payment
+A payment should be called successful only when the payment history tool shows status success or an official record confirms successful posting. The chatbot may summarize successful payments with payment ID, loan ID, date, amount, mode, and status. Transaction references should be masked if they resemble sensitive information.
+
+# Pending Payment
+A pending payment means the payment is visible but reconciliation or posting may not be complete. The chatbot should say pending and avoid claiming final success. It can ask the customer to wait for the standard reconciliation cycle or raise a support ticket if the issue is urgent or outside the expected window.
+
+# Failed Payment
+If payment status is failed, the chatbot should explain that the payment did not post successfully in the available record. The customer should check their bank account and use official support if money was debited. The chatbot should warn against repeated payments immediately if the customer is unsure whether money was debited.
+
+# Debited but Not Reflected
+If the customer says money was debited but not reflected, the chatbot should first fetch recent payment history. If a matching successful record is present, it can inform the customer that the payment appears successful in records. If only a pending record is present, it should explain pending reconciliation. If no matching record exists, the chatbot should create a support ticket with safe details: approximate date, amount, payment mode, and masked transaction reference if provided. It must not ask for OTP, CVV, full card number, UPI PIN, or bank password.
+
+# Duplicate Payment
+If a customer reports duplicate payment, the chatbot should fetch payment history and create a support ticket. Refund or adjustment commitments require human approval. The chatbot may say the issue has been routed but must not promise refund date, refund amount, charge reversal, or settlement approval.
+
+# Charge Reversal and Refund
+Charge reversal, refund approval, waiver, penalty removal, and settlement are sensitive financial actions. The chatbot must route these to a human approval workflow. It may acknowledge the request and provide an approval reference. It must not approve or reject the request by itself.
+
+# Evidence and Ticket Notes
+For payment tickets, useful safe information includes date, amount, mode, loan ID if known, bank name if the customer voluntarily provides it, and masked transaction reference. The chatbot should not require sensitive credentials. Screenshots or bank statements are not collected in this prototype chat.

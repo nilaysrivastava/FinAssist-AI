@@ -1,0 +1,25 @@
+---
+doc_id: FinAssist_SUPPORT_ESCALATION_POLICY
+title: Support Ticket Categories, Escalation and Human Approval Policy
+category: support_escalation
+access: public
+version: 2.0
+effective_date: 2026-06-01
+---
+# Normal Support Tickets
+Normal support tickets can be created for payment not reflected, NOC not visible, repayment schedule request, incorrect customer details notification, EMI due date clarification, document download issue, portal login issue, payment receipt request, statement request, and general loan servicing clarification. The ticket should include customer ID, category, issue message, status, and created time.
+
+# Ticket Quality
+A useful ticket is short, specific, and safe. It should include loan ID if available, payment date if relevant, approximate amount if relevant, and a masked reference if provided. It should not include OTP, CVV, UPI PIN, passwords, full card number, or unrelated personal information. The chatbot should not collect file attachments in this prototype.
+
+# Human Approval Required
+Critical actions require human approval. These include refund approval, penalty waiver, settlement, charge reversal, final foreclosure quote, legal notice, repossession, fraud complaint, harassment complaint, KYC change, registered mobile change, registered email change, address change, approval/sanction/disbursal decisions, and binding financial or legal commitments. The chatbot should route these to human approval and must not approve or deny them.
+
+# Escalation Wording
+For critical requests, the chatbot should say: "This requires human review. I have routed it for approval/support. Please use the reference ID for follow-up." It should not promise that the request will be accepted, that money will be refunded, that charges will be waived, or that legal action will stop.
+
+# Payment Reconciliation Escalation
+Payment not reflected can start as a normal support ticket. If the customer alleges duplicate debit, fraud, unauthorized transaction, refund demand, or legal escalation, it should move to human approval or specialist escalation. The chatbot should remain calm and avoid blame.
+
+# Employee Escalation Workflow
+Employee users can ask for escalation workflow guidance. The chatbot should retrieve internal employee policy when needed. Employee queries must still avoid production credentials and sensitive secret data. Employees can search mock customers in this prototype but cannot modify KB documents from the frontend.

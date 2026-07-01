@@ -1,0 +1,31 @@
+---
+doc_id: FinAssist_PORTAL_FAQ
+title: FinAssist Customer Portal FAQ and Self-Service Guide
+category: customer_portal
+access: public
+version: 2.0
+effective_date: 2026-06-01
+---
+# Purpose
+The FinAssist customer portal is the official self-service channel for customers to view loan summaries, check EMI due dates, view outstanding amount, download loan documents, download repayment schedules, raise service requests, and track support tickets. The chatbot may guide customers to the right portal section and may summarize information that is present in the customer record tools. The chatbot must not ask the customer to share OTP, CVV, UPI PIN, net banking password, full card number, or full account credentials in chat.
+
+# Login and Authentication
+Customers should sign in using their registered mobile number, registered email address, or another officially supported login method. If login fails, the customer should verify the registered mobile number or email address, retry after checking network connectivity, and use the forgot-login or support option if still blocked. The chatbot can explain these steps but must not reset credentials by itself. Credential reset, registered mobile change, email change, and KYC correction require verified support workflow or human approval.
+
+# Loan Dashboard
+The loan dashboard usually shows active and closed loans linked to the logged-in customer profile. The assistant should fetch customer loan records before answering account-specific questions. A good response includes loan ID, product, asset if available, EMI amount, outstanding amount, next due date, paid EMI count, remaining EMI count, DPD if available, and loan status. If multiple active loans are present, the assistant should ask which loan the customer means unless the query clearly identifies one loan.
+
+# EMI Due Date and EMI Status
+For EMI due date queries, the chatbot should use the customer loan tool. If the active loan is regular, it can state the next due date and EMI amount. If the loan is overdue, it should mention that the account may need immediate attention and suggest official payment or support options. The chatbot must not invent a future due date. If next due date is missing in the records, it should say that the due date is not available in the current records and suggest raising a ticket.
+
+# Payment Status and Receipt
+For payment status queries, the chatbot must call the payment history tool and summarize recent records. A successful payment record can be described as received or successful only when the tool output contains status success. If a payment record is pending, the chatbot should state pending and avoid claiming that reconciliation is complete. If a customer says money was debited but not reflected, the chatbot should check payment history, explain the standard reconciliation path, and create a support ticket if the transaction is missing or still pending.
+
+# Document Downloads
+Common documents include loan agreement, repayment schedule, payment receipt, statement of account, and NOC. The chatbot can guide the customer to the documents section of the portal. If the document is not visible, the customer can raise a support ticket. The chatbot should not fabricate a downloadable URL or claim that a document exists unless customer document records or policy context support it.
+
+# Service Requests and Ticket Tracking
+Customers can raise service requests for payment not reflected, NOC not visible, repayment schedule request, incorrect customer details, EMI due date clarification, foreclosure request, document download issue, and portal login issue. Each ticket should include the category, short issue description, customer ID, and status. The chatbot should keep the message short and avoid collecting excessive PII.
+
+# Safety Notes
+The portal and chatbot are support channels, not secure payment credential collection forms. Customers must never share OTP, CVV, UPI PIN, net banking password, full debit card number, or confidential credentials in chat. If a customer shares sensitive data, the chatbot should warn them not to share it and continue only with safe, masked information.

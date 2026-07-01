@@ -1,0 +1,29 @@
+[
+  {
+    "id": "USR-CUST-001",
+    "name": "Aarav Sharma",
+    "email": "aarav@example.com",
+    "role": "customer",
+    "customer_id": "CUST001",
+    "salt": "demo_salt_aarav",
+    "password_hash": "tSwJJJN3l2vu1JWTlHb5yHiDh7OGETr4obU7NMT1I-A"
+  },
+  {
+    "id": "USR-CUST-002",
+    "name": "Priya Nair",
+    "email": "priya@example.com",
+    "role": "customer",
+    "customer_id": "CUST002",
+    "salt": "demo_salt_priya",
+    "password_hash": "qFI9QQuCfkKghY-U-b4mci6hh0nYPd9LN83PzhTracE"
+  },
+  {
+    "id": "USR-EMP-001",
+    "name": "Meera Iyer",
+    "email": "meera.employee@finassist.local",
+    "role": "employee",
+    "customer_id": null,
+    "salt": "demo_salt_meera",
+    "password_hash": "hoYYEZVmrf7VUjHHZPgaBONsAUspBcYbWVmfqyk_wvQ"
+  }
+]
