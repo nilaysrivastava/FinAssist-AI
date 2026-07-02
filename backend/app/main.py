@@ -1,7 +1,7 @@
 import time
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from app.auth import create_user, current_user, find_user_by_email, issue_token, public_user, verify_password
+from app.auth import create_user, current_user, ensure_demo_accounts, find_user_by_email, issue_token, public_user, verify_password
 from app.config import FRONTEND_ORIGIN
 from app.guardrails import ai_guardrail_decision
 from app.ingest import ensure_index_exists
@@ -18,9 +18,10 @@ app = FastAPI(title="FinAssist GenAI Chatbot", version="2.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "https://finassist-ai-five.vercel.app"],
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "https://finassist-ai-six.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -29,6 +30,7 @@ app.add_middleware(
 
 @app.on_event("startup")
 def startup():
+    ensure_demo_accounts()
     ensure_index_exists()
 
 @app.get("/")

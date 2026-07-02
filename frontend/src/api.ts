@@ -17,6 +17,36 @@ export function clearToken() {
   localStorage.removeItem("finassist_token");
 }
 
+function getErrorMessage(data: any): string {
+  if (!data) return "Something went wrong";
+
+  if (typeof data.detail === "string") {
+    return data.detail;
+  }
+
+  if (Array.isArray(data.detail)) {
+    return data.detail
+      .map((item) => {
+        const loc = Array.isArray(item.loc) ? item.loc.join(".") : "";
+        const msg = item.msg || JSON.stringify(item);
+        return loc ? `${loc}: ${msg}` : msg;
+      })
+      .join(", ");
+  }
+
+  if (typeof data.detail === "object") {
+    return (
+      data.detail.message || data.detail.reason || JSON.stringify(data.detail)
+    );
+  }
+
+  if (typeof data.message === "string") {
+    return data.message;
+  }
+
+  return "Something went wrong";
+}
+
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const token = getToken();
   let res: Response;
@@ -32,14 +62,16 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
     });
   } catch {
     throw new Error(
-      `Unable to connect to backend at ${API_BASE}. Check VITE_API_BASE_URL, Render deployment status, and backend CORS settings.`
+      `Unable to connect to backend at ${API_BASE}. Check Render status, VITE_API_BASE_URL, and CORS settings.`
     );
   }
 
   const data = await res.json().catch(() => ({}));
+
   if (!res.ok) {
-    throw new Error(data.detail || "Something went wrong");
+    throw new Error(getErrorMessage(data));
   }
+
   return data as T;
 }
 

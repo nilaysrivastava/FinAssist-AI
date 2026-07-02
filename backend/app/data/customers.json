@@ -3,7 +3,7 @@
     "customer_id": "CUST001",
     "name": "Aarav Sharma",
     "registered_mobile": "9876543210",
-    "email": "aarav@example.com",
+    "email": "aarav.customer@finassist-demo.com",
     "city": "Chennai",
     "status": "active",
     "loans": [
@@ -36,14 +36,54 @@
       }
     ],
     "payments": [
-      {"payment_id": "PAY-7741", "loan_id": "LN-TW-1001", "date": "2026-06-05", "amount": 4125, "mode": "UPI", "status": "success", "reference": "UPIXXXX741"},
-      {"payment_id": "PAY-7512", "loan_id": "LN-TW-1001", "date": "2026-05-05", "amount": 4125, "mode": "Auto-debit", "status": "success", "reference": "NACHXXXX512"},
-      {"payment_id": "PAY-7210", "loan_id": "LN-TW-1001", "date": "2026-04-08", "amount": 4250, "mode": "UPI", "status": "success", "reference": "UPIXXXX210", "note": "Included late fee waiver adjustment"}
+      {
+        "payment_id": "PAY-7741",
+        "loan_id": "LN-TW-1001",
+        "date": "2026-06-05",
+        "amount": 4125,
+        "mode": "UPI",
+        "status": "success",
+        "reference": "UPIXXXX741"
+      },
+      {
+        "payment_id": "PAY-7512",
+        "loan_id": "LN-TW-1001",
+        "date": "2026-05-05",
+        "amount": 4125,
+        "mode": "Auto-debit",
+        "status": "success",
+        "reference": "NACHXXXX512"
+      },
+      {
+        "payment_id": "PAY-7210",
+        "loan_id": "LN-TW-1001",
+        "date": "2026-04-08",
+        "amount": 4250,
+        "mode": "UPI",
+        "status": "success",
+        "reference": "UPIXXXX210",
+        "note": "Included late fee waiver adjustment"
+      }
     ],
     "documents": [
-      {"doc_id": "DOC-101", "name": "Loan Agreement", "loan_id": "LN-TW-1001", "available": true},
-      {"doc_id": "DOC-102", "name": "NOC", "loan_id": "LN-PL-3310", "available": true},
-      {"doc_id": "DOC-103", "name": "Repayment Schedule", "loan_id": "LN-TW-1001", "available": true}
+      {
+        "doc_id": "DOC-101",
+        "name": "Loan Agreement",
+        "loan_id": "LN-TW-1001",
+        "available": true
+      },
+      {
+        "doc_id": "DOC-102",
+        "name": "NOC",
+        "loan_id": "LN-PL-3310",
+        "available": true
+      },
+      {
+        "doc_id": "DOC-103",
+        "name": "Repayment Schedule",
+        "loan_id": "LN-TW-1001",
+        "available": true
+      }
     ]
   },
   {
@@ -70,12 +110,38 @@
       }
     ],
     "payments": [
-      {"payment_id": "PAY-8842", "loan_id": "LN-CD-2208", "date": "2026-05-28", "amount": 6800, "mode": "UPI", "status": "success", "reference": "UPIXXXX842"},
-      {"payment_id": "PAY-8582", "loan_id": "LN-CD-2208", "date": "2026-04-28", "amount": 6800, "mode": "Auto-debit", "status": "success", "reference": "NACHXXXX582"}
+      {
+        "payment_id": "PAY-8842",
+        "loan_id": "LN-CD-2208",
+        "date": "2026-05-28",
+        "amount": 6800,
+        "mode": "UPI",
+        "status": "success",
+        "reference": "UPIXXXX842"
+      },
+      {
+        "payment_id": "PAY-8582",
+        "loan_id": "LN-CD-2208",
+        "date": "2026-04-28",
+        "amount": 6800,
+        "mode": "Auto-debit",
+        "status": "success",
+        "reference": "NACHXXXX582"
+      }
     ],
     "documents": [
-      {"doc_id": "DOC-201", "name": "Loan Agreement", "loan_id": "LN-CD-2208", "available": true},
-      {"doc_id": "DOC-202", "name": "Repayment Schedule", "loan_id": "LN-CD-2208", "available": true}
+      {
+        "doc_id": "DOC-201",
+        "name": "Loan Agreement",
+        "loan_id": "LN-CD-2208",
+        "available": true
+      },
+      {
+        "doc_id": "DOC-202",
+        "name": "Repayment Schedule",
+        "loan_id": "LN-CD-2208",
+        "available": true
+      }
     ]
   },
   {
@@ -102,11 +168,32 @@
       }
     ],
     "payments": [
-      {"payment_id": "PAY-9301", "loan_id": "LN-UC-4410", "date": "2026-06-12", "amount": 13650, "mode": "UPI", "status": "pending", "reference": "UPIXXXX301"},
-      {"payment_id": "PAY-9020", "loan_id": "LN-UC-4410", "date": "2026-05-10", "amount": 13650, "mode": "Auto-debit", "status": "success", "reference": "NACHXXXX020"}
+      {
+        "payment_id": "PAY-9301",
+        "loan_id": "LN-UC-4410",
+        "date": "2026-06-12",
+        "amount": 13650,
+        "mode": "UPI",
+        "status": "pending",
+        "reference": "UPIXXXX301"
+      },
+      {
+        "payment_id": "PAY-9020",
+        "loan_id": "LN-UC-4410",
+        "date": "2026-05-10",
+        "amount": 13650,
+        "mode": "Auto-debit",
+        "status": "success",
+        "reference": "NACHXXXX020"
+      }
     ],
     "documents": [
-      {"doc_id": "DOC-301", "name": "Loan Agreement", "loan_id": "LN-UC-4410", "available": true}
+      {
+        "doc_id": "DOC-301",
+        "name": "Loan Agreement",
+        "loan_id": "LN-UC-4410",
+        "available": true
+      }
     ]
   }
 ]

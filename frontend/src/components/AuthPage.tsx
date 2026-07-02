@@ -4,11 +4,17 @@ import { Bot, LockKeyhole, Sparkles } from "lucide-react";
 import { login, setToken, signup } from "../api";
 import type { User } from "../types";
 
+const CUSTOMER_DEMO_EMAIL = "aarav.customer@finassist-demo.com";
+const CUSTOMER_DEMO_PASSWORD = "Customer@123";
+
+const EMPLOYEE_DEMO_EMAIL = "meera.employee@finassist-demo.com";
+const EMPLOYEE_DEMO_PASSWORD = "Employee@123";
+
 export default function AuthPage({ onAuth }: { onAuth: (user: User) => void }) {
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("aarav@example.com");
-  const [password, setPassword] = useState("Customer@123");
+  const [email, setEmail] = useState(CUSTOMER_DEMO_EMAIL);
+  const [password, setPassword] = useState(CUSTOMER_DEMO_PASSWORD);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -16,11 +22,13 @@ export default function AuthPage({ onAuth }: { onAuth: (user: User) => void }) {
     e.preventDefault();
     setError("");
     setLoading(true);
+
     try {
       const res =
         mode === "login"
-          ? await login(email, password)
-          : await signup(name, email, password);
+          ? await login(email.trim(), password)
+          : await signup(name.trim(), email.trim(), password);
+
       setToken(res.token);
       onAuth(res.user);
     } catch (err) {
@@ -32,32 +40,38 @@ export default function AuthPage({ onAuth }: { onAuth: (user: User) => void }) {
 
   function useDemo(type: "customer" | "employee") {
     if (type === "customer") {
-      setEmail("aarav@example.com");
-      setPassword("Customer@123");
+      setEmail(CUSTOMER_DEMO_EMAIL);
+      setPassword(CUSTOMER_DEMO_PASSWORD);
     } else {
-      setEmail("meera.employee@finassist.local");
-      setPassword("Employee@123");
+      setEmail(EMPLOYEE_DEMO_EMAIL);
+      setPassword(EMPLOYEE_DEMO_PASSWORD);
     }
+
     setMode("login");
+    setError("");
   }
 
   return (
     <main className="relative min-h-screen overflow-y-auto bg-slate-950 text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#2563eb55,transparent_34%),radial-gradient(circle_at_bottom_right,#f9731655,transparent_30%)]" />
+
       <section className="relative mx-auto grid min-h-screen max-w-6xl items-center gap-10 px-4 py-10 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-slate-200">
             <Sparkles size={16} /> AI-powered support platform
           </div>
+
           <h1 className="max-w-3xl text-4xl font-black leading-tight tracking-tight sm:text-6xl">
             FinAssist AI
           </h1>
+
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
             Access trusted answers for EMI, payments, NOC, loan records, and
             support workflows through a secure assistant with verified
             knowledge, role-based access, and human review for sensitive
             actions.
           </p>
+
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
             {[
               "Verified policy answers",
@@ -83,6 +97,7 @@ export default function AuthPage({ onAuth }: { onAuth: (user: User) => void }) {
               <div className="grid h-11 w-11 place-items-center rounded-2xl bg-slate-950 text-white">
                 <Bot size={22} />
               </div>
+
               <div>
                 <h2 className="text-xl font-black">Secure Login</h2>
                 <p className="text-sm text-slate-500">
@@ -90,21 +105,33 @@ export default function AuthPage({ onAuth }: { onAuth: (user: User) => void }) {
                 </p>
               </div>
             </div>
+
             <LockKeyhole className="text-slate-400" />
           </div>
 
           <div className="mb-5 grid grid-cols-2 rounded-2xl bg-slate-100 p-1 text-sm font-bold">
             <button
               type="button"
-              onClick={() => setMode("login")}
-              className={`rounded-xl px-4 py-2 ${mode === "login" ? "bg-white shadow-sm" : "text-slate-500"}`}
+              onClick={() => {
+                setMode("login");
+                setError("");
+              }}
+              className={`rounded-xl px-4 py-2 ${
+                mode === "login" ? "bg-white shadow-sm" : "text-slate-500"
+              }`}
             >
               Login
             </button>
+
             <button
               type="button"
-              onClick={() => setMode("signup")}
-              className={`rounded-xl px-4 py-2 ${mode === "signup" ? "bg-white shadow-sm" : "text-slate-500"}`}
+              onClick={() => {
+                setMode("signup");
+                setError("");
+              }}
+              className={`rounded-xl px-4 py-2 ${
+                mode === "signup" ? "bg-white shadow-sm" : "text-slate-500"
+              }`}
             >
               Signup
             </button>
@@ -121,6 +148,7 @@ export default function AuthPage({ onAuth }: { onAuth: (user: User) => void }) {
               />
             </label>
           )}
+
           <label className="mb-4 block text-sm font-bold">
             Email
             <input
@@ -130,6 +158,7 @@ export default function AuthPage({ onAuth }: { onAuth: (user: User) => void }) {
               placeholder="name@example.com"
             />
           </label>
+
           <label className="mb-4 block text-sm font-bold">
             Password
             <input
@@ -166,6 +195,7 @@ export default function AuthPage({ onAuth }: { onAuth: (user: User) => void }) {
             >
               Use customer demo
             </button>
+
             <button
               type="button"
               onClick={() => useDemo("employee")}
@@ -173,6 +203,13 @@ export default function AuthPage({ onAuth }: { onAuth: (user: User) => void }) {
             >
               Use employee demo
             </button>
+          </div>
+
+          <div className="mt-5 rounded-2xl bg-slate-50 p-4 text-xs leading-6 text-slate-600">
+            <p className="font-black text-slate-800">Demo credentials</p>
+            <p>Customer: {CUSTOMER_DEMO_EMAIL}</p>
+            <p>Employee: {EMPLOYEE_DEMO_EMAIL}</p>
+            <p>Password: Customer@123 / Employee@123</p>
           </div>
         </form>
       </section>

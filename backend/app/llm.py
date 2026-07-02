@@ -521,7 +521,39 @@ def _account_summary_tools(current_user: dict) -> List[dict]:
         },
     ]
 
+def _is_employee_policy_workflow_query(message: str, current_user: dict) -> bool:
+    if current_user.get("role") != "employee":
+        return False
 
+    text = _clean_text(message)
+
+    lookup_terms = [
+        "search customer",
+        "find customer",
+        "lookup customer",
+        "customer record",
+    ]
+
+    if any(term in text for term in lookup_terms):
+        return False
+
+    workflow_terms = [
+        "escalation",
+        "workflow",
+        "process",
+        "policy",
+        "safe response",
+        "draft response",
+        "draft a safe response",
+        "failed payment reconciliation",
+        "payment reconciliation",
+        "noc not visible",
+        "loan closure",
+        "foreclosure",
+        "document issue",
+    ]
+
+    return any(term in text for term in workflow_terms)
 
 def _classify_support_intent(message: str, current_user: dict) -> Dict[str, Any]:
     text = _correct_common_typos(message)
@@ -564,6 +596,18 @@ def _classify_support_intent(message: str, current_user: dict) -> Dict[str, Any]
                 ],
                 "needs_kb": False,
             }
+
+    if _is_employee_policy_workflow_query(message, current_user):
+        return {
+            "intent": "employee_policy_workflow",
+            "tools": [
+                {
+                    "name": "search_knowledge_base",
+                    "args": {"query": message, "top_k": MAX_CONTEXT_CHUNKS},
+                }
+            ],
+            "needs_kb": True,
+        }
 
     if any(phrase in text for phrase in ["create ticket", "raise ticket", "open ticket", "lodge ticket"]):
         return {

@@ -2,7 +2,7 @@
   {
     "id": "USR-CUST-001",
     "name": "Aarav Sharma",
-    "email": "aarav@example.com",
+    "email": "aarav@finassist-demo.com",
     "role": "customer",
     "customer_id": "CUST001",
     "salt": "demo_salt_aarav",
@@ -11,7 +11,7 @@
   {
     "id": "USR-CUST-002",
     "name": "Priya Nair",
-    "email": "priya@example.com",
+    "email": "priya@finassist-demo.com",
     "role": "customer",
     "customer_id": "CUST002",
     "salt": "demo_salt_priya",
@@ -20,10 +20,27 @@
   {
     "id": "USR-EMP-001",
     "name": "Meera Iyer",
-    "email": "meera.employee@finassist.local",
+    "email": "meera.employee@finassist-demo.coml",
     "role": "employee",
     "customer_id": null,
     "salt": "demo_salt_meera",
     "password_hash": "hoYYEZVmrf7VUjHHZPgaBONsAUspBcYbWVmfqyk_wvQ"
+  },
+  {
+    "id": "USR-CUST-DEMO",
+    "name": "Aarav Sharma",
+    "email": "aarav.customer@finassist-demo.com",
+    "role": "customer",
+    "salt": "pzsIRIfv4ymxsvxLnovDxA",
+    "password_hash": "cMu0eMNFp9Yc4VM1fzTX8EMfmS0F5bmoNY-7m61jBqc",
+    "customer_id": "CUST001"
+  },
+  {
+    "id": "USR-EMP-DEMO",
+    "name": "Meera Employee",
+    "email": "meera.employee@finassist-demo.com",
+    "role": "employee",
+    "salt": "q8avRTIIVoVzK78oZvOeaA",
+    "password_hash": "biyfkUeYrYyYDas2MLAWKSpCxdqWjUmln-K8UXLLgc8"
   }
 ]
