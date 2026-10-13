@@ -2,8 +2,8 @@
   {
     "customer_id": "CUST001",
     "name": "Aarav Sharma",
-    "registered_mobile": "9876543210",
-    "email": "aarav.customer@finassist-demo.com",
+    "registered_mobile": "9000000001",
+    "email": "aarav@example.com",
     "city": "Chennai",
     "status": "active",
     "loans": [
@@ -89,8 +89,8 @@
   {
     "customer_id": "CUST002",
     "name": "Priya Nair",
-    "registered_mobile": "9988776642",
-    "email": "priya@example.com",
+    "registered_mobile": "9000000002",
+    "email": "customer2@example.com",
     "city": "Bengaluru",
     "status": "active",
     "loans": [
@@ -147,8 +147,8 @@
   {
     "customer_id": "CUST003",
     "name": "Rohan Verma",
-    "registered_mobile": "9123456781",
-    "email": "rohan.verma@example.com",
+    "registered_mobile": "9000000003",
+    "email": "customer3@example.com",
     "city": "Pune",
     "status": "active",
     "loans": [

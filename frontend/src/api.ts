@@ -26,7 +26,7 @@ function getErrorMessage(data: any): string {
 
   if (Array.isArray(data.detail)) {
     return data.detail
-      .map((item) => {
+      .map((item: { loc?: Array<string | number>; msg?: string }) => {
         const loc = Array.isArray(item.loc) ? item.loc.join(".") : "";
         const msg = item.msg || JSON.stringify(item);
         return loc ? `${loc}: ${msg}` : msg;

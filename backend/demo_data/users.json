@@ -1,0 +1,20 @@
+[
+  {
+    "id": "USR-CUST-DEMO",
+    "name": "Aarav Sharma",
+    "email": "aarav@example.com",
+    "role": "customer",
+    "customer_id": "CUST001",
+    "salt": "Z-9e3cIv7yfLMOu2qfwS3g",
+    "password_hash": "mpOiDWuLNQ8l-B9xPClJ86jr0RXAOTEjhihGIB-amdw"
+  },
+  {
+    "id": "USR-EMP-DEMO",
+    "name": "Meera Employee",
+    "email": "meera.employee@finassist-demo.com",
+    "role": "employee",
+    "customer_id": null,
+    "salt": "kvmZCT5-1T2ib88Zl17AFQ",
+    "password_hash": "ieQl8Q9c-a8ZT1A9j4e1i6D3ZE9cG1Y6P2BdG-GOOzw"
+  }
+]

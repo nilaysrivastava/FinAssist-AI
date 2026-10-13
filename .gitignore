@@ -26,3 +26,30 @@ backend/app/data/memory.json
 
 .vscode/
 .idea/
+
+# Local dependencies, caches and secrets (restorable from lockfiles)
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+.next/
+*.tsbuildinfo
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+*.db
+*.sqlite*
+.local-backups/
+uploads/
+postgres_data/
+verification_report.pdf
+# Current accounts, conversations and indexes stay local; see demo_data and bootstrap.
+backend/app/data/
